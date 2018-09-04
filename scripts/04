@@ -4,7 +4,7 @@ then
 	if [ ! "$(md5sum --quiet -c ~/.check_cron.md5 | grep -q 'FAILED')" ]
 	then
 		echo "crontab has been changed. Send mail to root"
-		mail -s "crontab changed" root
+		mail -s "crontab changed" root < /etc/crontab
 		md5sum /etc/crontab > ~/.check_cron.md5
 	fi
 else
