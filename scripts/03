@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ -d $1 ]
+then
+	ls -lsSpA $1 | grep -v / | grep -v "total";
+else
+	echo "not a directory"
+fi

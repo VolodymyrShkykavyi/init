@@ -1,0 +1,17 @@
+#!/bin/bash
+if [ -e ~/.check_cron.md5 ]
+then
+	if [! md5sum -c ~/.check_cron.md5 ]
+	then
+		echo "crontab has been changed. Send mail to root"
+		mail -s "crontab changed" root
+		md5sum /etc/crontab > ~/.check_cron.md5
+	fi
+else
+	md5sum /etc/crontab > ~/.check_cron.md5
+fi
+
+if [ ! $(cat /etc/crontab | grep "/04") ]
+then
+	sudo bash -c 'echo "0 0 * * * bash $PWD/04" >> /etc/crontab'
+fi

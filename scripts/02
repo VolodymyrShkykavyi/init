@@ -1,0 +1,6 @@
+#!/bin/bash
+apt-get update >> /var/log/update_script.log;
+apt-get upgrade >> /var/log/update_script.log;
+
+sudo grep -q "0 4 \* \* sun * /bin/bash $PWD/02" /etc/crontab || echo "0 4 * * sun /bin/bash $PWD/02" >> /etc/crontab;
+
