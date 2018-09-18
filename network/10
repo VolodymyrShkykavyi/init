@@ -1,0 +1,2 @@
+#!/bin/bash
+traceroute -v slash16.org
