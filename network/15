@@ -1,0 +1,4 @@
+#add to /etc/hosts
+46.19.122.85 intra.42.fr
+
+#The first IP address is where you want to go. The second domain name is where you want to redirect from.
